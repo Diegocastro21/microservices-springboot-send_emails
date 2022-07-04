@@ -121,6 +121,15 @@ public class Course implements Serializable {
         this.enrolled_students = enrolled_students;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Course{" +
+                "key=" + key +
+                ", teacher=" + teacher +
+                ", name='" + name + '\'' +
+                ", start_date=" + start_date +
+                ", ending_date=" + ending_date +
+                ", enrolled_students=" + enrolled_students +
+                '}';
+    }
 }
