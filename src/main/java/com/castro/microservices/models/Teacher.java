@@ -73,5 +73,12 @@ public class Teacher extends Person implements Serializable {
         this.courses = courses;
     }
 
-
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "degree='" + degree + '\'' +
+                ", salary=" + salary +
+                ", courses=" + courses +
+                '}';
+    }
 }

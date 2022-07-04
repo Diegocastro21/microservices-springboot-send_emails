@@ -2,6 +2,7 @@ package com.castro.microservices.controllers;
 
 import java.util.List;
 
+import com.castro.microservices.services.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,8 +28,16 @@ public class StudentController {
     @Autowired
     private PersonService personService;
 
+    private MailService mailService;
+
     @PostMapping("/estudiante")
     public Student createStudent(@Validated @RequestBody Student student) {
+        Student newStudent = studentService.saveStudent(student);
+
+        if (newStudent != null) {
+            mailService.sendEmail(newStudent.getEmail(), "INSCRIPCION REGISTRADA", newStudent.toString());
+        }
+
         return studentService.saveStudent(student);
     }
 
@@ -46,4 +55,6 @@ public class StudentController {
     public void deleteStudent(@PathVariable String id) {
         personService.deletePerson(id);
     }
+
+
 }

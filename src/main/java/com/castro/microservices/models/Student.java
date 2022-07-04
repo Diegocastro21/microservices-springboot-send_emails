@@ -94,5 +94,23 @@ public class Student extends Person implements Serializable{
     }
 
 
+    @Override
+    public String toString() {
+        String scholarship_description = "";
+        String state_description = "";
 
+        if (schoolarship) {
+            scholarship_description = "El Estudiante Aplica";
+        }else {
+            scholarship_description = "El Estudiante no aplica";
+        }
+        if (state == 1) {
+            scholarship_description = "Incrito";
+        }else {
+            scholarship_description = "Otro";
+        }
+        return "Estudiante;\nBeca: "+scholarship_description+ ", Estado= "+state_description+ ", enrolled_courses= "+enrolled_courses+
+                ", Id: "+getId()+ ", Nombre: "+getName()+", genero: "+getGender()+", Email: "+getEmail()+ " to string"+
+                super.toString();
+    }
 }
