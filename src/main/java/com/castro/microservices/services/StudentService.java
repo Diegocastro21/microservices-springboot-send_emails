@@ -21,4 +21,10 @@ public class StudentService {
     public List<Student> getAllStudents(){
         return iStudentRepository.findAll();
     }
+
+
+    public Student getStudent(String id){
+        return iStudentRepository.getOne(id);
+    }
+
 }

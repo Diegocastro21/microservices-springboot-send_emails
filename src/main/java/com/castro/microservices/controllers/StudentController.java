@@ -46,6 +46,11 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+    @GetMapping("/estudiante/{id}")
+     public Student findStudent(@PathVariable String id){
+        return studentService.getStudent(id);
+     }
+
     @PutMapping("/estudiante/{id}")
     public Student updateStudent(@PathVariable String id, @Validated @RequestBody Student student) {
         return studentService.saveStudent(student);
