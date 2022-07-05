@@ -24,9 +24,15 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.Filters;
+import org.hibernate.annotations.ParamDef;
 
 @Entity(name = "Course")
 @Table(name = "\"Courses\"", schema = "public")
+@FilterDef(name = "filterByDate", parameters = @ParamDef(name = "_start_date", type = "LocalDate"))
+@Filters(@Filter(name = "filterByDate", condition = "start_date>=:_start_date"))
 public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
