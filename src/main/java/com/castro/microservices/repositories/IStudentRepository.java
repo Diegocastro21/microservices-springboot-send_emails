@@ -8,3 +8,4 @@ import com.castro.microservices.models.Student;
 public interface IStudentRepository extends JpaRepository<Student, String> {
 
 }
+
