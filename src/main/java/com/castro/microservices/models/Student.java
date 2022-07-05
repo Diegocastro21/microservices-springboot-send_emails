@@ -25,6 +25,10 @@ import org.hibernate.annotations.OnDeleteAction;
 @PrimaryKeyJoinColumn(name = "id", foreignKey = @ForeignKey(name = "fk_student_person"))
 public class Student extends Person implements Serializable{
 
+
+    /*
+    * Clase de modelado y entity en la base de datos
+    * */
     private static final long serialVersionUID = 1L;
 
     @Column(name = "schoolarship", columnDefinition = "boolean DEFAULT 'false'")

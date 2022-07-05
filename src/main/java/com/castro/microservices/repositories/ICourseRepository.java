@@ -8,6 +8,8 @@ import com.castro.microservices.models.Course;
 @Repository
 public interface ICourseRepository extends JpaRepository<Course, Long> {
 
+
+
 }
 
 

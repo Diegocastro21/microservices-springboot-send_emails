@@ -54,6 +54,12 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
+    @PutMapping("/estudiantes/{id}")
+    public void disableStudent(@PathVariable String id) {
+        studentService.softDeleteStudent(id);
+        personService.softDeletePerson(id);
+    }
+
     @DeleteMapping("/estudiante/{id}")
     public void deleteStudent(@PathVariable String id) {
         personService.deletePerson(id);

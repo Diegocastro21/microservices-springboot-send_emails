@@ -24,10 +24,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.hibernate.annotations.Filter;
-import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.Filters;
-import org.hibernate.annotations.ParamDef;
+import org.hibernate.annotations.*;
 
 @Entity(name = "Course")
 @Table(name = "\"Courses\"", schema = "public")
@@ -73,6 +70,7 @@ public class Course implements Serializable {
     )
     @JsonIdentityReference(alwaysAsId = true)
     @ManyToMany(mappedBy = "enrolled_courses", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @Where(clause = "state <> 0")
     private List<Student> enrolled_students;
 
     public Long getKey() {

@@ -19,9 +19,6 @@ import com.castro.microservices.services.CourseService;
 @RestController
 @RequestMapping("/api/colegio")
 public class CourseController {
-
-
-
     @Autowired
     private CourseService courseService;
     @PostMapping("/curso")
@@ -41,6 +38,8 @@ public class CourseController {
     public Course updateCourse(@PathVariable String id, @Validated @RequestBody Course course) {
         return courseService.saveCourse(course);
     }
+
+
 
     @DeleteMapping("/curso/{id}")
     public void deleteCourse(@PathVariable Long id) {

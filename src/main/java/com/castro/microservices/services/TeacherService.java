@@ -26,5 +26,7 @@ public class TeacherService {
         return iTeacherRepository.customTeacherQuery(salary, courses_num);
     }
 
+
+
 }
 

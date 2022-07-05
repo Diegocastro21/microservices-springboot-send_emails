@@ -53,6 +53,8 @@ public class Teacher extends Person implements Serializable {
         this.degree = degree;
     }
 
+
+
     public Double getSalary() {
         return salary;
     }

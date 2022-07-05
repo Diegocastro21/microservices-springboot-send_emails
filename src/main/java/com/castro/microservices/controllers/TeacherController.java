@@ -27,6 +27,8 @@ public class TeacherController {
     @Autowired
     private PersonService personService;
 
+
+
     @PostMapping("/profesor")
     public Teacher createTeacher(@Validated @RequestBody Teacher teacher) {
         return teacherService.saveTeacher(teacher);

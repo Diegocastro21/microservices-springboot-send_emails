@@ -16,3 +16,4 @@ public interface ITeacherRepository extends JpaRepository<Teacher, String> {
     List<Teacher> customTeacherQuery(@Param("salary") Double salary, @Param("courses_num") Integer courses_num);
 
 }
+

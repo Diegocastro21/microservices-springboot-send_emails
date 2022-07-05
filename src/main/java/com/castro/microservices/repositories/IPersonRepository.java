@@ -16,6 +16,8 @@ public interface IPersonRepository extends JpaRepository<Person, String> {
     @Query("UPDATE Person p SET p.status = false WHERE p.id =:id")
     void softDeletePerson(@Param("id") String id);
 
+
+
 }
 
 

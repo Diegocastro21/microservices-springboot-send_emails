@@ -15,6 +15,8 @@ public class Person {
     @Column(name = "id", length = 10)
     private String id;
 
+
+
     @Column(name = "name", nullable = false)
     private String name;
 
