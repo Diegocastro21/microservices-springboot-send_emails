@@ -27,6 +27,10 @@ public class StudentService {
         return iStudentRepository.getOne(id);
     }
 
+    public void softDeleteStudent(String id) {
+        iStudentRepository.softDeleteStudent(id);
+    }
+
 }
 
 

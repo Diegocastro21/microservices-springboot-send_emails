@@ -1,11 +1,14 @@
 package com.castro.microservices.models;
 
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 
 
 @Entity(name = "Person")
 @Table(name = "\"Persons\"", schema = "public")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Where(clause = "status = true")
 public class Person {
 
     @Id
@@ -20,6 +23,9 @@ public class Person {
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "status", columnDefinition = "boolean DEFAULT 'true'")
+    private Boolean status = true;
 
     public String getId() {
         return id;
