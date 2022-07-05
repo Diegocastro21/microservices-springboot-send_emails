@@ -33,6 +33,11 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
+    @GetMapping("/cursos/{start_date}")
+    public List<Course> findCoursesByDate(@PathVariable String start_date){
+        return courseService.getAvailableCourses(start_date);
+    }
+
     @PutMapping("/curso/{id}")
     public Course updateCourse(@PathVariable String id, @Validated @RequestBody Course course) {
         return courseService.saveCourse(course);

@@ -32,6 +32,8 @@ public class TeacherController {
         return teacherService.saveTeacher(teacher);
     }
 
+
+
     @GetMapping("/profesores")
     public List<Teacher> readTeachers(){
         return teacherService.getAllTeachers();

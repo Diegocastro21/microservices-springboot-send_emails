@@ -41,6 +41,8 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
+
+
     @GetMapping("/estudiantes")
     public List<Student> readStudents(){
         return studentService.getAllStudents();
