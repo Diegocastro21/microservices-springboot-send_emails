@@ -35,6 +35,7 @@ public class CourseService {
 
     public List<Course> getAvailableCourses(String start_date){
 
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         LocalDate _start_date = LocalDate.parse(start_date, formatter);

@@ -22,5 +22,9 @@ public class TeacherService {
         return iTeacherRepository.findAll();
     }
 
+    public List<Teacher> getCustomTeachers(Double salary, Integer courses_num){
+        return iTeacherRepository.customTeacherQuery(salary, courses_num);
+    }
+
 }
 
