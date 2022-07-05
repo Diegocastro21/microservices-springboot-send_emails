@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Filter;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,9 +39,12 @@ public class CourseService {
 
         LocalDate _start_date = LocalDate.parse(start_date, formatter);
 
+        Filter filter = courseManager.unwrap(Session.class).enableFilter("filterByDate");
+        filter.setParameter("_start_date", _start_date);
+        List<Course> availableCourses = iCourseRepository.findAll();
+        courseManager.unwrap(Session.class).disableFilter("filterByDate");
 
-
-        return iCourseRepository.findAll();
+        return availableCourses;
     }
 
     public void deleteCourse(Long id) {
