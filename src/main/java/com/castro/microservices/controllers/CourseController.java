@@ -20,19 +20,18 @@ import com.castro.microservices.services.CourseService;
 @RequestMapping("/api/colegio")
 public class CourseController {
 
+
+
     @Autowired
     private CourseService courseService;
-
     @PostMapping("/curso")
     public Course createCourse(@Validated @RequestBody Course course) {
         return courseService.saveCourse(course);
     }
-
     @GetMapping("/cursos")
     public List<Course> readCourses(){
         return courseService.getAllCourses();
     }
-
     @GetMapping("/cursos/{start_date}")
     public List<Course> findCoursesByDate(@PathVariable String start_date){
         return courseService.getAvailableCourses(start_date);

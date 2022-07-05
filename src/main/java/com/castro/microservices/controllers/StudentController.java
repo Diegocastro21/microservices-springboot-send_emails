@@ -37,12 +37,8 @@ public class StudentController {
         if (newStudent != null) {
             mailService.sendEmail(newStudent.getEmail(), "INSCRIPCION REGISTRADA", newStudent.toString());
         }
-
         return studentService.saveStudent(student);
     }
-
-
-
     @GetMapping("/estudiantes")
     public List<Student> readStudents(){
         return studentService.getAllStudents();

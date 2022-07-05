@@ -32,11 +32,14 @@ public class TeacherController {
         return teacherService.saveTeacher(teacher);
     }
 
-
-
     @GetMapping("/profesores")
     public List<Teacher> readTeachers(){
         return teacherService.getAllTeachers();
+    }
+
+    @PostMapping("/profesores/custom-query")
+    public List<Teacher> customReadTeachers(Double salary, Integer courses_num){
+        return teacherService.getCustomTeachers(salary, courses_num);
     }
 
     @PutMapping("/profesor/{id}")
